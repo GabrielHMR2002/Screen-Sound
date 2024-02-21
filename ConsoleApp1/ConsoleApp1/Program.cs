@@ -4,6 +4,9 @@
     {
         static void Main(string[] args)
         {
+            String mensagemDeBoasVindas = "SEJA VEM VINDO!";
+            List<String> listaDeBandas = new List<String> {"U2", "The Neatles", "Calypso" };
+
             void ExibirMensagemDeBoasVindas()
             {
                 Console.WriteLine(@"
@@ -20,16 +23,41 @@
             void RegistrarBanda()
             {
                 Console.Clear(); // Limpa o console
+                Console.WriteLine("**********************");
                 Console.WriteLine("Registro de banda: ");
+                Console.WriteLine("**********************");
                 Console.Write("Digite o nome da banda: ");
                 String nomeDaBanda = Console.ReadLine()!;
+                listaDeBandas.Add(nomeDaBanda);
                 Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso."); // Interpolação de String
                 Thread.Sleep(2000); // Em milisegundos
                 Console.Clear();
                 ExibirOpcoesDoMenu();
             }
 
-            String mensagemDeBoasVindas = "SEJA VEM VINDO!";
+            void MostrarTodasAsBandasRegistradas()
+            {
+
+                Console.Clear(); // Limpa o console
+                Console.WriteLine("**********************");
+                Console.WriteLine("Exibindo todas as bandas registradas: ");
+                Console.WriteLine("**********************\n");
+
+             //   for(int i = 0; i < listaDeBandas.Count; i++)
+             //   {
+             //       Console.WriteLine($"Banda: {listaDeBandas[i]}");
+             //   }
+
+                foreach(String banda in listaDeBandas)
+                {
+                    Console.WriteLine($"Banda ${banda}");
+                }
+
+                Console.WriteLine("\nDigite uma tecla para voltar ao menu principal.");
+                Console.ReadKey();
+                Console.Clear();
+                ExibirOpcoesDoMenu();
+            }
 
             void ExibirLogo()
             {
@@ -57,7 +85,10 @@
                         RegistrarBanda();
 
                         break;
-                    case 2: Console.WriteLine("Você escolheu a opcão " + opcao); break;
+                    case 2:
+                        Console.WriteLine("Você escolheu a opcão " + opcao);
+                        MostrarTodasAsBandasRegistradas();
+                        break;
                     case 3: Console.WriteLine("Você escolheu a opcão " + opcao); break;
                     case 4: Console.WriteLine("Você escolheu a opcão " + opcao); break;
                     case 0: Console.WriteLine("Você saiu da aplicação."); break;
