@@ -23,9 +23,8 @@
             void RegistrarBanda()
             {
                 Console.Clear(); // Limpa o console
-                Console.WriteLine("**********************");
+                ExibirTituloDaOpcao("Registro de banda: ");
                 Console.WriteLine("Registro de banda: ");
-                Console.WriteLine("**********************");
                 Console.Write("Digite o nome da banda: ");
                 String nomeDaBanda = Console.ReadLine()!;
                 listaDeBandas.Add(nomeDaBanda);
@@ -39,18 +38,18 @@
             {
 
                 Console.Clear(); // Limpa o console
-                Console.WriteLine("**********************");
+                ExibirTituloDaOpcao("Exibindo todas as bandas registradas: ");
                 Console.WriteLine("Exibindo todas as bandas registradas: ");
-                Console.WriteLine("**********************\n");
 
-             //   for(int i = 0; i < listaDeBandas.Count; i++)
-             //   {
-             //       Console.WriteLine($"Banda: {listaDeBandas[i]}");
-             //   }
 
-                foreach(String banda in listaDeBandas)
+                //   for(int i = 0; i < listaDeBandas.Count; i++)
+                //   {
+                //       Console.WriteLine($"Banda: {listaDeBandas[i]}");
+                //   }
+
+                foreach (String banda in listaDeBandas)
                 {
-                    Console.WriteLine($"Banda ${banda}");
+                    Console.WriteLine($"Banda {banda}");
                 }
 
                 Console.WriteLine("\nDigite uma tecla para voltar ao menu principal.");
@@ -64,6 +63,17 @@
                 Console.WriteLine();
                 Console.WriteLine(mensagemDeBoasVindas);
 
+            }
+
+            void ExibirTituloDaOpcao(string titulo)
+            {
+
+                int quantidadeDeLetras = titulo.Length; // Length pega a quantidade de caracteres nesse titulo
+                string asteriscos = string.Empty.PadLeft(quantidadeDeLetras, '*');
+                Console.WriteLine(asteriscos);
+                Console.WriteLine(titulo);
+                Console.WriteLine(asteriscos);
+                Console.WriteLine();
             }
 
             void ExibirOpcoesDoMenu()
