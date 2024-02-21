@@ -39,9 +39,7 @@
 
                 Console.Clear(); // Limpa o console
                 ExibirTituloDaOpcao("Exibindo todas as bandas registradas: ");
-                Console.WriteLine("Exibindo todas as bandas registradas: ");
-
-
+ 
                 //   for(int i = 0; i < listaDeBandas.Count; i++)
                 //   {
                 //       Console.WriteLine($"Banda: {listaDeBandas[i]}");
