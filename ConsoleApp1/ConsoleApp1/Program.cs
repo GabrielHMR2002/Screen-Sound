@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             String mensagemDeBoasVindas = "SEJA VEM VINDO!";
-            List<String> listaDeBandas = new List<String> {"U2", "The Neatles", "Calypso" };
+           // List<String> listaDeBandas = new List<String> {"U2", "The Neatles", "Calypso" };
+           Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
 
             void ExibirMensagemDeBoasVindas()
             {
@@ -27,7 +28,8 @@
                 Console.WriteLine("Registro de banda: ");
                 Console.Write("Digite o nome da banda: ");
                 String nomeDaBanda = Console.ReadLine()!;
-                listaDeBandas.Add(nomeDaBanda);
+                bandasRegistradas.Add(nomeDaBanda, new List<int>());
+                //listaDeBandas.Add(nomeDaBanda);
                 Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso."); // Interpolação de String
                 Thread.Sleep(2000); // Em milisegundos
                 Console.Clear();
@@ -45,7 +47,7 @@
                 //       Console.WriteLine($"Banda: {listaDeBandas[i]}");
                 //   }
 
-                foreach (String banda in listaDeBandas)
+                foreach (String banda in bandasRegistradas.Keys)
                 {
                     Console.WriteLine($"Banda {banda}");
                 }
