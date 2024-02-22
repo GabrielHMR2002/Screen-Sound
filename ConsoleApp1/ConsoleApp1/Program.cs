@@ -7,14 +7,16 @@
             String mensagemDeBoasVindas = "SEJA VEM VINDO!";
             // List<String> listaDeBandas = new List<String> {"U2", "The Neatles", "Calypso" };
             Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
-            bandasRegistradas.Add("Link Park", new List<int> { 10, 8, 6 });
+            bandasRegistradas.Add("Linkin Park", new List<int> { 10, 8, 6 });
             bandasRegistradas.Add("The Beatles", new List<int>());
+
             void ExibirLogo()
             {
                 Console.WriteLine();
                 Console.WriteLine(mensagemDeBoasVindas);
 
             }
+
             void ExibirTituloDaOpcao(string titulo)
             {
 
@@ -75,6 +77,7 @@
 
 ");
             }
+
             void RegistrarBanda()
             {
                 Console.Clear(); // Limpa o console
@@ -127,8 +130,14 @@
                 string nomeDaBanda = Console.ReadLine()!;
 
                 if (bandasRegistradas.ContainsKey(nomeDaBanda))
-                {  //Alguma chave que contem o nome da abnda
-
+                {  //Alguma chave que contem o nome da banda
+                    Console.Write($"Qual a nota que a banda{nomeDaBanda} merece: ");
+                    int nota = int.Parse(Console.ReadLine()!);
+                    bandasRegistradas[nomeDaBanda].Add(nota);   
+                    Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                    ExibirOpcoesDoMenu();
                 }
                 else
                 {
@@ -138,6 +147,7 @@
                     ExibirOpcoesDoMenu();
                 }                         
             }
+
             ExibirMensagemDeBoasVindas();
             while (true)
             {
