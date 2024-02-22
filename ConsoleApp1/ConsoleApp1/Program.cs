@@ -28,6 +28,30 @@
                 Console.WriteLine();
             }
 
+            void ExibirMedia()
+            {
+                Console.Clear();
+                ExibirTituloDaOpcao("Exibir média da banda");
+                Console.WriteLine("Digite o nome da banda que você deseja exibir a média: ");
+                string nomeDaBanda = Console.ReadLine()!;
+
+                if(bandasRegistradas.ContainsKey(nomeDaBanda))
+                {
+                    List<int> notasDaBanda = bandasRegistradas[nomeDaBanda];
+                    Console.WriteLine($"A médi da banda {nomeDaBanda} é {notasDaBanda.Average()}");
+                    Console.WriteLine("Digite uma tecla para voltar ao menu.");
+                    Console.ReadKey();
+                    ExibirOpcoesDoMenu();
+                }
+                else
+                {
+                    Console.WriteLine($"A banda {nomeDaBanda} não foi encontrada.");
+                    Console.WriteLine("Digite uma tecla para voltar ao menu.");
+                    Console.ReadKey();
+                    ExibirOpcoesDoMenu();
+                }
+            }
+
             void ExibirOpcoesDoMenu()
             {
                 ExibirLogo();
@@ -55,7 +79,10 @@
                         Console.WriteLine("Você escolheu a opcão " + opcao);
                         AvaliarUmaBanda();
                         break;
-                    case 4: Console.WriteLine("Você escolheu a opcão " + opcao); break;
+                    case 4: 
+                        Console.WriteLine("Você escolheu a opcão " + opcao);
+                        ExibirMedia();
+                        break;
                     case 0: Console.WriteLine("Você saiu da aplicação."); break;
                     default: Console.WriteLine("Opcão Inválida!"); break;
 
@@ -135,7 +162,7 @@
                     int nota = int.Parse(Console.ReadLine()!);
                     bandasRegistradas[nomeDaBanda].Add(nota);   
                     Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
-                    Thread.Sleep(2000);
+                    Thread.Sleep(4000);
                     Console.Clear();
                     ExibirOpcoesDoMenu();
                 }
